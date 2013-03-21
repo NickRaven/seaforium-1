@@ -246,6 +246,27 @@ function isThread() {
     });
   });
 
+  var $pointsButtons = $('.give-point, .take-point');
+  $pointsButtons.click(function(e){
+    var $this = $(this);
+
+    e.preventDefault();
+
+    $.ajax({
+      url: '/ajax/give_point/' + $this.data('commentid') + '/' + $this.data('type') + '/' + session_id,
+      success: function(data){
+        var numPoints = parseInt(data, 10);
+
+        if(isNaN(numPoints)){
+          $this.parent().find('.current-points').text('Error!');
+        }else{
+          $this.parent().find('.current-points').text(numPoints + ' point' + (numPoints !== 1 ? 's' : ''));
+          $pointsButtons.remove();
+        }
+      }
+    })
+  });
+
   // keyboard nav
   function createKeyboardNavListener(){
     var ignore = ['input','textarea','button'],

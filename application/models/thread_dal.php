@@ -497,4 +497,42 @@ class Thread_dal extends Model
                      $search_phrase);
     return $this->db->affected_rows();
   }
+
+  /**
+   * give a point to a comment and the author of the comment
+   *
+   * @param int
+   * @return  bool
+   */
+  function give_point($user_id, $comment_id, $type){
+    // get the owner of the comment
+    $author_id_result = $this->db->query("SELECT `user_id` FROM `comments` WHERE `comment_id` = ?", array($comment_id));
+    if($author_id_result->num_rows()!==1){
+      return false;
+    }
+    $author_id = $author_id_result->row()->user_id;
+
+    // have they spent their point today?
+    $result = $this->db->query("SELECT `id` FROM `users` " .
+                    "WHERE DATE_SUB(CURDATE(),INTERVAL 1 DAY) >= `lastpointusage` " .
+                    "AND `id` != ?" .
+                    "AND `id` = ?",
+                    array($author_id, $user_id));
+    if($result->num_rows()!==1){
+      return false;
+    }
+    // spend it!
+
+    if($type==='minus'){
+      $this->db->query("UPDATE `comments` SET `points`=`points`-1 WHERE `comment_id` = ?", array($comment_id));
+      $this->db->query("UPDATE `users` SET `points`=`points`-1 WHERE `id` = ?", array($author_id));
+    }else{
+      $this->db->query("UPDATE `comments` SET `points`=`points`+1 WHERE `comment_id` = ?", array($comment_id));
+      $this->db->query("UPDATE `users` SET `points`=`points`+1 WHERE `id` = ?", array($author_id));
+    }
+    $this->db->query("UPDATE `users` SET `lastpointusage` = NOW() WHERE `id` = ?", array($user_id));
+    $numpoints = $this->db->query("SELECT `points` FROM `comments` WHERE `comment_id` = ?", array($comment_id));
+
+    return $numpoints->row()->points;
+  }
 }

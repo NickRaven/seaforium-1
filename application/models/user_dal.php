@@ -418,6 +418,7 @@ class User_dal extends Model
 				users.custom_css,
 				users.custom_js,
 				users.timezone,
+        users.points,
 				user_profiles.country,
 				user_profiles.website_1,
 				user_profiles.website_2,

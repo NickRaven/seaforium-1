@@ -112,6 +112,13 @@ foreach($comments as $row) {
           <?php } ?>
           </ul>
         </div>
+        <div class="comment-points">
+          <span class="current-points"><?=$row->points;?> point<?=$row->points!=='1' ? 's' : ''?></span>
+          <?php if($row->can_give_points && !$row->owner){ ?>
+          <a class="give-point" data-commentid="<?=$row->comment_id; ?>" data-type="plus">+1</a>
+          <a class="take-point" data-commentid="<?=$row->comment_id; ?>" data-type="minus">-1</a>
+          <?php } ?>
+        </div>
 
         <?php if ($row->show_controls) { ?>
           <div id="thread-control">
