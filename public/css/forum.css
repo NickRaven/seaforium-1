@@ -698,13 +698,15 @@ text-transform: uppercase;
 
 .comment-points {
     position: relative;
+    font-size: 10px;
+    padding-left: 0;
 }
 .give-point, .take-point {
     position: absolute;
     right: 16px;
 }
 .give-point {
-    margin-right: 10px;
+    margin-right: 13px;
 }
 
 /*.user-information ul li a*/
