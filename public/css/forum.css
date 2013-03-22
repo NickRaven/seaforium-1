@@ -698,7 +698,7 @@ text-transform: uppercase;
 
 .comment-points {
     position: relative;
-    font-size: 10px;
+    font-size: 9px;
     padding-left: 0;
 }
 .give-point, .take-point {
