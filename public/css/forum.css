@@ -1572,6 +1572,7 @@ color: #494949;
 #main-title .favourite, #main-title .favourite.added, #main-title .hide-thread, #main-title .hide-thread.added { margin: 0 5px;}
 .two { float:none; }
 .three .username, .three .time, .two .username, .two .time { float:none; display: inline; line-height: 16px; }
+.comment-container .time { display: inline; }
 .thread .one { width: 90%; float:none; }
 .thread .subject { margin: 0px; white-space: nowrap; overflow:hidden; text-overflow: ellipsis; }
 .thread .four { width: auto; overflow:hidden; }
@@ -1584,6 +1585,19 @@ color: #494949;
     background-image: url(../img/naughty.gif);
     background-position: 28px 0;
     background-repeat: no-repeat;
+}
+.comment-points {
+    display: inline;
+    margin-left: 10px;
+}
+.give-point, .take-point {
+    position: relative;
+    right: auto;
+    padding: 3px 7px;
+    background: #eee;
+    margin-right: 5px;
+    border-radius: 4px;
+    font-size: 11px;
 }
 
 .lc-node {
