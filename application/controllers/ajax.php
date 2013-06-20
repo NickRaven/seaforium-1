@@ -247,6 +247,13 @@ class Ajax extends MY_Controller
     echo _process_post($this->input->post('content'));
   }
 
+  function give_point($comment_id, $type, $key){
+    if ($key !== $this->session->userdata('session_id')) {
+      return -1;
+    }
+    echo $this->thread_dal->give_point($this->session->userdata('user_id'), $comment_id, $type);
+  }
+
 }
 
 /* End of file ajax.php */
