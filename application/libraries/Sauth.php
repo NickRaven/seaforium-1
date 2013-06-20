@@ -133,7 +133,7 @@ class Sauth
       'password' => $hasher->HashPassword($password),
       'email' => $email,
       'last_ip' => $this->ci->input->ip_address(),
-      'activated' => 1
+      'activated' => 0
     );
 
     // insert the user into the database
