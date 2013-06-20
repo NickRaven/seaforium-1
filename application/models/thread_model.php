@@ -113,6 +113,7 @@ class Thread_model extends Model
 	      users.banned AS author_banned,
 	      users.ban_reason AS author_ban_reason,
 	      users.emoticon,
+	      comments.points,
 	      IFNULL(acquaintances.type, 0) AS author_acquaintance_type
 	    FROM comments
 	    LEFT JOIN users
@@ -130,6 +131,12 @@ class Thread_model extends Model
 			$this->page,
 			$this->meta['comments_shown']
 			));
+
+	$can_give_points_result = $this->db->query("SELECT `id` FROM `users` " .
+                    "WHERE DATE_SUB(CURDATE(),INTERVAL 1 DAY) >= `lastpointusage` " .
+                    "AND `id` = ?",
+                    array($this->meta['user_id']));
+	$can_give_points = $can_give_points_result->num_rows() === 1;
 
 		if (!$result->num_rows())
 		{
@@ -157,7 +164,9 @@ class Thread_model extends Model
 						'author_acquaintance_name' => $row->author_acquaintance_type == 1 ? 'buddy' : ($row->author_acquaintance_type == 2 ? 'enemy' : NULL),
 						'owner' => $this->meta['user_id'] == $row->author_id,
 						'editable' => ($this->meta['user_id'] == $row->author_id) && ($row->created < time() - (60 * 60 * 24)),
-						'show_controls' => $this->page == 0 && ($this->meta['user_id'] == $row->author_id) && !$i
+						'show_controls' => $this->page == 0 && ($this->meta['user_id'] == $row->author_id) && !$i,
+						'points' => $row->points,
+						'can_give_points' => $can_give_points
 					);
 
 					// update comments if the content doesnt match original
