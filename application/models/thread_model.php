@@ -114,7 +114,8 @@ class Thread_model extends Model
 	      users.ban_reason AS author_ban_reason,
 	      users.emoticon,
 	      comments.points,
-	      IFNULL(acquaintances.type, 0) AS author_acquaintance_type
+	      IFNULL(acquaintances.type, 0) AS author_acquaintance_type,
+	      (SELECT `id` FROM `users` WHERE DATE_SUB(CURDATE(),INTERVAL 1 DAY) >= `lastpointusage` AND `id` = ?) AS canaddpoints
 	    FROM comments
 	    LEFT JOIN users
 	      ON comments.user_id = users.id
@@ -127,16 +128,11 @@ class Thread_model extends Model
 
 		$result = $this->db->query($sql, array(
 			$this->meta['user_id'],
+			$this->meta['user_id'],
 			$thread_id,
 			$this->page,
 			$this->meta['comments_shown']
 			));
-
-	$can_give_points_result = $this->db->query("SELECT `id` FROM `users` " .
-                    "WHERE DATE_SUB(CURDATE(),INTERVAL 1 DAY) >= `lastpointusage` " .
-                    "AND `id` = ?",
-                    array($this->meta['user_id']));
-	$can_give_points = $can_give_points_result->num_rows() === 1;
 
 		if (!$result->num_rows())
 		{
@@ -166,7 +162,7 @@ class Thread_model extends Model
 						'editable' => ($this->meta['user_id'] == $row->author_id) && ($row->created < time() - (60 * 60 * 24)),
 						'show_controls' => $this->page == 0 && ($this->meta['user_id'] == $row->author_id) && !$i,
 						'points' => $row->points,
-						'can_give_points' => $can_give_points
+						'can_give_points' => $row->canaddpoints
 					);
 
 					// update comments if the content doesnt match original
