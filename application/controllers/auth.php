@@ -119,7 +119,7 @@ class Auth extends MY_Controller
       $this->sauth->login($username, $password);
 
       // post welcome thread
-      $comment = array(
+      /*$comment = array(
         'user_id' => 2622, // WelcomeBot user id on the live site
         'category' => 1,
         'subject' => "Yayhooray! Please welcome {$username}",
@@ -129,15 +129,15 @@ class Auth extends MY_Controller
       $comment['thread_id'] = $this->thread_dal->new_thread($comment);
       $this->thread_dal->new_comment($comment);
 
-      if ($this->is_request_json()) {                                                                                                                                                                   
-        return send_json($this->output, 200, array(                                                                                                                                                     
-          'ok'       => true,                                                                                                                                                                           
-          'user_id'  => (int)$this->session->userdata('user_id'),                                                                                                                                       
-          'username' => $this->session->userdata('username'),                                                                                                                                           
-        ));                                                                                                                                                                                             
-      } else {                                                                                                                                                                                          
-        redirect('/');                                                                                                                                                                                  
-      }
+      if ($this->is_request_json()) {
+        return send_json($this->output, 200, array(
+          'ok'       => true,
+          'user_id'  => (int)$this->session->userdata('user_id'),
+          'username' => $this->session->userdata('username'),
+        ));
+      } else {
+        redirect('/');
+      }*/
     }
 
     $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
