@@ -416,7 +416,7 @@
 
 <div class="input text">
   <label for="emot_upload">Avatar</label>
-  <input type="file" id="emot_upload" name="emot_upload" size="20" />
+  <input type="file" id="emot_upload" name="emot_upload" size="40" />
 </div>
 
 </form>
