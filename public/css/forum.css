@@ -709,6 +709,10 @@ text-transform: uppercase;
     margin-right: 13px;
 }
 
+#thread .comment-worths {
+    background: #fffff6;
+}
+
 /*.user-information ul li a*/
 
 #thread-control {
