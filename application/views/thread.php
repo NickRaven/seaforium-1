@@ -48,7 +48,7 @@ $previous_created = time();
 foreach($comments as $row) {
   $points_highlight_class = '';
   if($row->points > 3){
-    $points_highlight_class = 'comment-worths'
+    $points_highlight_class = 'comment-worths';
   }
   //checking if last post was older than 36 hours ago
   if ($row->created - $previous_created > 129600)
@@ -84,7 +84,7 @@ foreach($comments as $row) {
   <?php
   } ?>
 
-  <div id="comment-<?=$row->comment_id ?>" class="comment userid-<?=$row->author_id;?> <?=$row->author_acquaintance_name; ?> <?=($row->owner ? ' mycomment' : ''); ?> <?=$points_highlight_class?>">
+  <div id="comment-<?=$row->comment_id ?>" class="comment userid-<?=$row->author_id;?> <?=$row->author_acquaintance_name; ?> <?=($row->owner ? ' mycomment' : ''); ?> <?= $points_highlight_class; ?>">
     <div id="comment-container-<?=$row->comment_id; ?>" class="comment-container">
       <div class="cmd-bar">
         <span>
