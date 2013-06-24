@@ -949,6 +949,17 @@ blockquote.tquote div.tqname {
     font-style:normal;
     font-weight: bold;
 }
+.quote-nested-toggle {
+    display: block;
+    padding: 4px;
+    border-radius: 5px;
+    background: #eee;
+    text-decoration: none;
+    margin-top: 4px;
+    width: 113px;
+    overflow: hidden;
+    text-align: center;
+}
 /*------- profile information -------- */
 #photostream {
 	float: left;
