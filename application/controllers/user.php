@@ -37,6 +37,19 @@ class User extends Controller {
 
     $time_registered = $time_registered <= 0 ? 1 : $time_registered;
 
+    $seconds_until_point = 86400 - $data['user_data']->seconds_since_last_point;
+    if($seconds_until_point < 0){
+      $data['user_data']->nextpointtime = 'right now';
+    }else{
+      $hoursToPoint = ceil($seconds_until_point / 3600);
+      $minsToPoint = ceil(($seconds_until_point - (3600 * ($hoursToPoint-1))) / 60);
+      if($hoursToPoint>1){
+        $data['user_data']->nextpointtime = 'in ' . $hoursToPoint . ' hour' . ($hoursToPoint != 1 ? 's' : '');
+      }else{
+        $data['user_data']->nextpointtime = 'in ' . $minsToPoint . ' minute' . ($minsToPoint != 1 ? 's': '');
+      }
+    }
+
     $ppd = ($data['user_data']->threads_count +
             $data['user_data']->comments_count) / $time_registered;
 

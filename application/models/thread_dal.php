@@ -514,7 +514,7 @@ class Thread_dal extends Model
 
     // have they spent their point today?
     $result = $this->db->query("SELECT `id` FROM `users` " .
-                    "WHERE DATE_SUB(CURDATE(),INTERVAL 1 DAY) >= `lastpointusage` " .
+                    "WHERE `lastpointusage` <= (now() - INTERVAL 24 HOUR)" .
                     "AND `id` != ?" .
                     "AND `id` = ?",
                     array($author_id, $user_id));
