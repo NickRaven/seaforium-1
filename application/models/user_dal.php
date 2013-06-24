@@ -419,6 +419,8 @@ class User_dal extends Model
 				users.custom_js,
 				users.timezone,
         users.points,
+        users.lastpointusage,
+        time_to_sec(timediff(now(), users.lastpointusage)) as seconds_since_last_point,
 				user_profiles.country,
 				user_profiles.website_1,
 				user_profiles.website_2,
