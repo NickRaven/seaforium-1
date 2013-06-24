@@ -1603,8 +1603,7 @@ color: #494949;
     background-repeat: no-repeat;
 }
 .comment-points {
-    display: inline;
-    margin-left: 10px;
+    padding-bottom: 3px;
 }
 .give-point, .take-point {
     position: relative;
