@@ -1,3 +1,61 @@
+/*
+  Nested Quotes object
+*/
+function NestedQuote($node){
+  this.$node = $node;
+  this.labels = {
+    'up'  : 'Click to show older',
+    'down': 'Click to hide'
+  };
+  this.doNesting();
+}
+NestedQuote.prototype.doNesting = function(){
+  var $nestedQuote = this.$node.find('.tquote:first');
+  
+  if($nestedQuote.length){
+    this.applyNesting($nestedQuote);
+  }
+};
+NestedQuote.prototype.makeToggle = function($quoteToToggle){
+  var $toggle = $('<a href="#" class="quote-nested-toggle"></a>').text(this.labels.up),
+      labels = this.labels;
+
+  $toggle.click(function(e){
+    e.preventDefault();
+    
+    if($quoteToToggle.is(':hidden')){
+      $toggle.text(labels.down);
+      $quoteToToggle.show();
+    }else{
+      $toggle.text(labels.up);
+      $quoteToToggle.hide();
+    }
+  });
+  return $toggle;
+};
+NestedQuote.prototype.skipToggle = function($quoteToSkip){
+  var $fragment = $quoteToSkip.clone(),
+      $nextFragment = this.$node.clone();
+
+  $fragment.add($nextFragment).find('.tqname').remove();
+  $fragment.add($nextFragment).find('img').each(function(){
+    var $img = $(this);
+    $img.before('<span>'+$img.attr('href')+'</span>');
+  });
+  return $fragment.text() === $nextFragment.text();
+};
+NestedQuote.prototype.applyNesting = function($childQuote){
+  if(!$childQuote){
+    return;
+  }
+  if(this.skipToggle($childQuote)){
+    return this.applyNesting($childQuote.find('.tquote:first'));;
+  }
+
+  $childQuote.before(this.makeToggle($childQuote));
+  $childQuote.hide();
+};
+
 
 (function () {
   var title, tpl = $("#title-input").html();
@@ -246,6 +304,7 @@ function isThread() {
     });
   });
 
+  // points
   var $pointsButtons = $('.give-point, .take-point');
   $pointsButtons.click(function(e){
     var $this = $(this);
@@ -316,5 +375,11 @@ function isThread() {
     };
   }
   $('body').keypress(createKeyboardNavListener());
+
+  // collpase quotes
+  var $quotes = $('.content > .tquote > .tquote');
+  $quotes.each(function(i){
+    new NestedQuote($(this));
+  });
 
 })();
