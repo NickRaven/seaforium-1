@@ -51,6 +51,9 @@ foreach($comments as $row) {
   if($row->points > 3){
     $points_highlight_class = 'comment-worths';
   }
+  if($row->points == 0){
+    $points_highlight_class = 'comment-nopoints';
+  }
   //checking if last post was older than 36 hours ago
   if ($row->created - $previous_created > 129600)
   {
