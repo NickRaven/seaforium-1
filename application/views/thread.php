@@ -1,6 +1,7 @@
 <?php
 
 $logged_in = $this->sauth->is_logged_in();
+$can_give_points = $logged_in ? $this->user_dal->can_give_points($this->session->userdata('user_id')) : false;
 
 ?>
 
@@ -118,7 +119,7 @@ foreach($comments as $row) {
         </div>
         <div class="comment-points">
           <span class="current-points"><?=$row->points;?> point<?=$row->points!=='1' ? 's' : ''?></span>
-          <?php if($row->can_give_points && !$row->owner){ ?>
+          <?php if($can_give_points && !$row->owner){ ?>
           <a class="give-point" data-commentid="<?=$row->comment_id; ?>" data-type="plus">+1</a>
           <a class="take-point" data-commentid="<?=$row->comment_id; ?>" data-type="minus">-1</a>
           <?php } ?>

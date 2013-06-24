@@ -704,4 +704,13 @@ class User_dal extends Model
     $this->db->query("UPDATE sessions SET self_destruct = 1 WHERE user_id = ?", array($user_id)); 
     $this->db->query("UPDATE users SET banned = 1, ban_reason = ? WHERE id = ?", array($reason, $user_id));
   }
+
+  function can_give_points($user_id)
+  {
+    $result = $this->db->query("SELECT `id` FROM `users`
+                                WHERE `lastpointusage` <= (now() - INTERVAL 24 HOUR)
+                                AND `id` = ?", array($user_id));
+
+    return $result->num_rows > 0 ? true : false;
+  }
 }
