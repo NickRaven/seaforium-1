@@ -170,7 +170,8 @@ class Statistics_dal extends Model
   		");
   		return $most_hidden_threads->result_array();
   }
-  function most_cunts() { 
+  function most_cunts() {
+      return array();
   		//first the inefficient way
   		$all_comments = $this->db->query("SELECT 
   				users.username, 
@@ -199,6 +200,17 @@ class Statistics_dal extends Model
 
   		arsort($cunt_count);
   		return array_slice($cunt_count, 0, 10);
+  }
+
+  /* points related */
+  function most_points(){
+    $result = $this->db->query("SELECT `points`, `username` FROM `users` WHERE `points` != 0 ORDER BY `points` DESC LIMIT 10");
+    return $result->result_array();
+  }
+
+  function least_points(){
+    $result = $this->db->query("SELECT `points`, `username` FROM `users` WHERE `points` != 0 ORDER BY `points` ASC LIMIT 10");
+    return $result->result_array();
   }
    
   	
