@@ -55,6 +55,19 @@
 				<?php endforeach; ?>
 			</li>
 
+			<li>
+				<h2>Most Points</h2>
+				<?php foreach($most_points as $key => $val) : ?>
+					<?php echo $key+1 ?>) <?php echo $val['points'] ?> - <a href="user/<?php echo $val['username'] ?>"><?php echo $val['username'] ?></a><br/>
+				<?php endforeach; ?>
+			</li>
+			<li>
+				<h2>Least Points</h2>
+				<?php foreach($least_points as $key => $val) : ?>
+					<?php echo $key+1 ?>) <?php echo $val['points'] ?> - <a href="user/<?php echo $val['username'] ?>"><?php echo $val['username'] ?></a><br/>
+				<?php endforeach; ?>
+			</li>
+
 
 			
 

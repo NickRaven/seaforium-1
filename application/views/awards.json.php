@@ -35,6 +35,14 @@ $current_awards['awards'] = Array(
 	Array(
 		'title'=>"Most Cunts!",
 		'rankings'=>$most_cunts
+	),
+	Array(
+		'title'=>"Most Points",
+		'rankings'=>$most_points
+	),
+	Array(
+		'title'=>"Least Points",
+		'rankings'=>$least_points
 	)
 
 );
