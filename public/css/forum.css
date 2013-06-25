@@ -2094,3 +2094,27 @@ line-height: 20px;
 #post-shortcuts p {
     margin-bottom: 0px;
 }
+
+/*------------------------------------------------------------
+Award Section
+------------------------------------------------------------*/
+#awards { 
+    width: 100%;
+
+}
+.award_content { 
+    margin: 20px;
+
+}
+.award_content ul { 
+
+}    
+.award_content ul li { 
+    
+   margin-bottom: 10px;
+   
+}
+.award_content ul li h2 { 
+    
+
+} 
