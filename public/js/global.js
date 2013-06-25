@@ -317,9 +317,9 @@ function isThread() {
         var numPoints = parseInt(data, 10);
 
         if(isNaN(numPoints)){
-          $this.parent().find('.current-points').text('Error!');
+          $this.parent().find('.current-points').show().text('Error!');
         }else{
-          $this.parent().find('.current-points').text(numPoints + ' point' + (numPoints !== 1 ? 's' : ''));
+          $this.parent().find('.current-points').show().text(numPoints + ' point' + (numPoints !== 1 ? 's' : ''));
           $pointsButtons.remove();
         }
       }
