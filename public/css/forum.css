@@ -700,17 +700,27 @@ text-transform: uppercase;
     position: relative;
     font-size: 9px;
     padding-left: 0;
+    padding-top: 3px;
 }
 .give-point, .take-point {
-    position: absolute;
-    right: 16px;
+    display: block;
+    float: left;
+    padding: 3px 5px;
+    border-radius: 5px;
+    background: #eee;
+    text-decoration: none;
+    margin: -3px 4px 0 0;
 }
-.give-point {
-    margin-right: 13px;
+.current-points {
+    float: left;
+    margin-right: 4px;
 }
 
 #thread .comment-worths {
     background: #faf6df;
+}
+#thread .comment-nopoints .current-points {
+    display: none;
 }
 
 /*.user-information ul li a*/
@@ -1603,7 +1613,7 @@ color: #494949;
     background-repeat: no-repeat;
 }
 .comment-points {
-    padding-bottom: 3px;
+    padding-bottom: 2px;
 }
 .give-point, .take-point {
     position: relative;
@@ -1613,6 +1623,7 @@ color: #494949;
     margin-right: 5px;
     border-radius: 4px;
     font-size: 11px;
+    margin-top: -5px;
 }
 
 .lc-node {
