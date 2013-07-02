@@ -39,6 +39,7 @@ class CI_Session {
 	var $cookie_domain				= '';
 	var $cookie_secure				= FALSE;
 	var $sess_time_to_update		= 300;
+	var $self_destruct 				= FALSE;
 	var $encryption_key				= '';
 	var $flashdata_key				= 'flash';
 	var $time_reference				= 'time';
@@ -124,6 +125,13 @@ class CI_Session {
 		log_message('debug', "Session routines successfully run");
 	}
 
+	// --------------------------------------------------------------------
+
+	function is_self_destruct()
+	{
+		return $this->self_destruct;
+	}
+	
 	// --------------------------------------------------------------------
 
 	/**
