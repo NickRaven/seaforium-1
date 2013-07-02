@@ -1,23 +1,19 @@
 <?php
 
-$lang['date_year'] = "year";
-$lang['date_years'] = "years";
-$lang['date_month'] = "month";
-$lang['date_months'] = "months";
-$lang['date_week'] = "week";
-$lang['date_weeks'] = "weeks";
-$lang['date_day'] = "day";
-$lang['date_days'] = "days";
-$lang['date_hour'] = "hour";
-$lang['date_hours'] = "hours";
-$lang['date_minute'] = "minute";
-$lang['date_minutes'] = "minutes";
-$lang['date_second'] = "second";
-$lang['date_seconds'] = "seconds";
-
-$lang['ago'] = "ago";
-
-$lang['later'] = "later";
+$lang['date_year'] = "Year";
+$lang['date_years'] = "Years";
+$lang['date_month'] = "Month";
+$lang['date_months'] = "Months";
+$lang['date_week'] = "Week";
+$lang['date_weeks'] = "Weeks";
+$lang['date_day'] = "Day";
+$lang['date_days'] = "Days";
+$lang['date_hour'] = "Hour";
+$lang['date_hours'] = "Hours";
+$lang['date_minute'] = "Minute";
+$lang['date_minutes'] = "Minutes";
+$lang['date_second'] = "Second";
+$lang['date_seconds'] = "Seconds";
 
 $lang['UM12']	= '(UTC -12:00) Baker/Howland Island';
 $lang['UM11']	= '(UTC -11:00) Samoa Time Zone, Niue';
@@ -59,6 +55,7 @@ $lang['UP12']	= '(UTC +12:00) Fiji, Gilbert Islands, Kamchatka Time, New Zealand
 $lang['UP1275']	= '(UTC +12:45) Chatham Islands Standard Time';
 $lang['UP13']	= '(UTC +13:00) Phoenix Islands Time, Tonga';
 $lang['UP14']	= '(UTC +14:00) Line Islands';
+
 
 /* End of file date_lang.php */
 /* Location: ./system/language/english/date_lang.php */

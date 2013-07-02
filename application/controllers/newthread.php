@@ -4,7 +4,7 @@ class Newthread extends MY_Controller {
 
   function Newthread()
   {
-    parent::Controller();
+    parent::__construct();
 
     $this->load->helper(array('form', 'url', 'htmlpurifier', 'content_render'));
     $this->load->library('form_validation');

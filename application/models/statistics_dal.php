@@ -1,6 +1,6 @@
 <?php
 
-class Statistics_dal extends Model
+class Statistics_dal extends CI_Model
 {
   function fetch_titlebar_edits() { 
   		$titlebar_edits = $this->db->query("SELECT 

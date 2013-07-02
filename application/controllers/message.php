@@ -4,7 +4,7 @@ class Message extends MY_Controller {
 
   function Message()
   {
-    parent::Controller();
+    parent::__construct();
 
     $this->load->helper(array('form', 'url', 'content_render'));
     $this->load->library('form_validation');

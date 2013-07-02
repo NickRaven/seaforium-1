@@ -1,10 +1,10 @@
 <?php
 
-class Find extends Controller {
+class Find extends CI_Controller {
 
   function Find()
   {
-    parent::Controller();
+    parent::__construct();;
 	$this->load->library(array('form_validation', 'pagination'));
     $this->load->helper(array('url', 'date', 'form', 'content_render', 'htmlpurifier'));
 

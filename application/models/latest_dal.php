@@ -1,6 +1,6 @@
 <?php
 
-class Latest_dal extends Model
+class Latest_dal extends CI_Model
 {
   function Latest()
   {

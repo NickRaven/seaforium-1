@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_dal extends Model
+class User_dal extends CI_Model
 {
   function User_dal()
   {

@@ -1,6 +1,6 @@
 <?php
 
-class Threadsmodel extends Model
+class Threadsmodel extends CI_Model
 {
   var $args, $meta, $thread_count;
 

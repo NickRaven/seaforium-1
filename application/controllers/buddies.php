@@ -1,10 +1,10 @@
 <?php
 
-class Buddies extends Controller {
+class Buddies extends CI_Controller {
 
   function Buddies()
   {
-    parent::Controller();
+    parent::__construct();
 
     $this->load->helper(array('form', 'url', 'content_render'));
     $this->load->library('form_validation');
