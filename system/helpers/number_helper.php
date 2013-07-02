@@ -71,6 +71,34 @@ if ( ! function_exists('byte_format'))
 	}
 }
 
+if ( ! function_exists('make_ordinal'))
+{
+	function make_ordinal($num)
+	{
+		// get first digit
+		$digit = abs($num) % 10;
+		$ext = 'th';
 
+		// if the last two digits are between 4 and 21 add a th
+		if(abs($num) %100 < 21 && abs($num) %100 > 4)
+		{
+			$ext = 'th';
+		} else {
+			if($digit < 4)
+				$ext = 'rd';
+
+			if($digit < 3)
+				$ext = 'nd';
+
+			if($digit < 2)
+				$ext = 'st';
+
+			if($digit < 1)
+				$ext = 'th';
+		}
+
+		return $num.$ext;
+	}
+}
 /* End of file number_helper.php */
 /* Location: ./system/helpers/number_helper.php */
