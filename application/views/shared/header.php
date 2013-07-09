@@ -163,6 +163,7 @@ if ($logged_in) {
 <?php } ?>
          </div>
 
+        <p><a href="http://www.rockethub.com/projects/27882-everything-will-be-okay-an-epic-documentary-about-als" class="everythingpic">Everything Will Be Ok</a></p>
 <?php if ($this->sauth->is_logged_in()) { ?>
 
          <div class="lc-node" id="buddy-list">
