@@ -2032,6 +2032,7 @@ line-height: 20px;
 }
 
 .tquote img {
+    height: auto;
     max-width: 250px !important;
 }
 
