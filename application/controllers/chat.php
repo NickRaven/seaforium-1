@@ -1,6 +1,6 @@
 <?php
 
-class Chat extends Controller
+class Chat extends CI_Controller
 {
   function __construct()
   {

@@ -1,5 +1,5 @@
 <?php
-class Threads extends Controller {
+class Threads extends CI_Controller {
 
   var $meta;
 

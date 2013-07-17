@@ -1,6 +1,6 @@
 <?php
 
-class Message_dal extends Model
+class Message_dal extends CI_Model
 {
 	function Message_dal()
 	{

@@ -1,6 +1,6 @@
 <?php
 
-class Thread_model extends Model
+class Thread_model extends CI_Model
 {
 	var $meta, $return, $page;
 

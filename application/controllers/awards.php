@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Awards extends Controller
+class Awards extends CI_Controller
 {
 	function __construct()
   	{

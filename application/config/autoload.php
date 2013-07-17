@@ -53,19 +53,6 @@ $autoload['libraries'] = array('database', 'session', 'sauth', 'user_agent');
 
 $autoload['helper'] = array('utils');
 
-
-/*
-| -------------------------------------------------------------------
-|  Auto-load Plugins
-| -------------------------------------------------------------------
-| Prototype:
-|
-|	$autoload['plugin'] = array('captcha', 'js_calendar');
-*/
-
-$autoload['plugin'] = array();
-
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Config files

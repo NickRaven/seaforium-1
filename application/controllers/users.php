@@ -1,10 +1,10 @@
 <?php
 
-class Users extends Controller {
+class Users extends CI_Controller {
 
   function Users()
   {
-    parent::Controller();
+    parent::__construct();
 
     $this->load->helper(array('url', 'number', 'content_render'));
     $this->load->model('user_dal');

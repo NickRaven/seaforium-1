@@ -1,10 +1,10 @@
 <?php
 
-class Messages extends Controller {
+class Messages extends CI_Controller {
 
 	function Messages()
 	{
-		parent::Controller();
+		parent::__construct();
 
 		$this->load->helper(array('form', 'url', 'content_render'));
 		$this->load->library('form_validation');

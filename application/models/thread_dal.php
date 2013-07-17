@@ -1,6 +1,6 @@
 <?php
 
-class Thread_dal extends Model
+class Thread_dal extends CI_Model
 {
   function Thread()
   {

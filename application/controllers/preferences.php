@@ -2,11 +2,11 @@
 
 require_once(APPPATH . '/libraries/phpass-0.1/PasswordHash.php');
 
-class Preferences extends Controller {
+class Preferences extends CI_Controller {
 
   function Preferences()
   {
-    parent::Controller();
+    parent::__construct();
 
     $this->load->helper(array('form', 'url', 'utils'));
     $this->load->library('form_validation');
