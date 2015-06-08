@@ -86,8 +86,8 @@ foreach($users as $row) {
     <div class="user_logdate">Last log date
       <?php echo date('M jS y', strtotime($row['last_login'])); ?>
     </div>
-	<div class="user_logdate">
-          <?php echo isset($row['threads_count']) ? $row['threads_count'] : '0'; ?> threads &nbsp;|&nbsp; <?php echo isset($row['comments_count']) ? $row['comments_count'] : '0'; ?> posts
+	<div class="user_stats">
+          <span class="user_stats--threads_count"><?php echo isset($row['threads_count']) ? $row['threads_count'] : '0'; ?></span> threads &nbsp;|&nbsp; <span class="user_stats--comments_count"><?php echo isset($row['comments_count']) ? $row['comments_count'] : '0'; ?></span> posts
 	</div>
   </div>
 
